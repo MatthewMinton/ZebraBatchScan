@@ -1,3 +1,17 @@
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![GUI](https://img.shields.io/badge/GUI-Tkinter-lightgrey)
+![Excel](https://img.shields.io/badge/Excel-openpyxl-green)
+![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen)
+
+![Traceability](https://img.shields.io/badge/Use--Case-Manufacturing%20Traceability-orange)
+![Barcode](https://img.shields.io/badge/Scanner-Zebra%20DS3678-black)
+![Offline](https://img.shields.io/badge/Workflow-Offline%20Batch-lightblue)
+
+![Duplicate Safe](https://img.shields.io/badge/Duplicates-Prevented-success)
+![Checkpointing](https://img.shields.io/badge/Checkpointing-Enabled-informational)
+![UTF--8](https://img.shields.io/badge/Encoding-UTF--8-blueviolet)
+
 # Zebra Dock Scan Tool, DS3678 Batch Receiver, TXT ➜ Excel Logger
 
 A lightweight, production-friendly traceability utility that captures **18-digit SERNR serial numbers** from a Zebra **DS3678** dock, writes them to a **comma-delimited TXT log**, then appends new scans into a **central Excel log** with **duplicate protection** and a **checkpoint**, making it safe to run repeatedly.
