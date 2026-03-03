@@ -108,10 +108,15 @@ Stores how far the append script has processed in the TXT log.
   "text_mtime": 1772479749.420252,
   "updated": "03/02/2026 14:29:21"
 }
+```
+## Data Formats
 
----
-
-## Data Format
 ### TXT Log Line Format
+
 Each line in the log must match the following format:
 MM/DD/YYYY,HH:MM:SS,18-digit-serial
+
+
+**Example**
+03/02/2026,14:29:21,123456789012345678
+
