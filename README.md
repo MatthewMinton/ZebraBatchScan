@@ -120,3 +120,87 @@ MM/DD/YYYY,HH:MM:SS,18-digit-serial
 **Example**
 03/02/2026,14:29:21,123456789012345678
 
+
+---
+
+### Excel Columns
+
+The Excel workbook sheet **Log** uses the following columns:
+
+| Date | Time | Serial Number |
+|------|------|---------------|
+
+---
+
+## Requirements
+
+- **Windows**  
+  Paths are configured for Windows drive letters and network shares
+
+- **Python 3.x**
+
+### Required Packages
+
+- `openpyxl`
+
+Install with:
+
+```bash
+pip install openpyxl
+```
+tkinter ships with most Python installs on Windows.
+If it is missing, install the full Python distribution or enable the Tk components.
+
+## Setup
+
+### 1) Configure Paths
+
+Both scripts rely on **hard-coded file paths**.  
+Update these values to match your environment.
+
+#### Receiver Script
+
+- `OUTPUT_FILE`
+
+#### Append Script
+
+- `TEXT_FILE`
+- `EXCEL_FILE`
+- `CHECKPOINT_FILE`
+
+---
+
+## Usage
+
+### Step 1: Run the Batch Receiver
+
+Run the Tkinter receiver on the workstation connected to the dock:
+
+```bash
+python Zebra_Scan_Tool.py
+```
+
+### Console Output Includes
+- Number of new lines read
+- Valid rows appended
+- Duplicate serial nummbers skipped
+- Invalid lines skipped
+- Appended row range
+
+---
+
+## Scheduling the Excel Append Script
+**Recommended:** Use **Windows Task Scheduler** to run the script on a cadence (daily, hourly, etc.).
+
+### Suggested Configuration
+### Trigger
+- Daily, or every X minutes
+
+### Action
+- **Program/script:** python.exe
+- **Add arguments:** Zebra_To_Excel.py
+- **Start in:** directory containing the script
+No scheduling logic is embedded in the script.
+It is intentionally designed to be scheduled externally.
+
+---
