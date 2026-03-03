@@ -190,10 +190,13 @@ python Zebra_Scan_Tool.py
 ---
 
 ## Scheduling the Excel Append Script
+
 **Recommended:** Use **Windows Task Scheduler** to run the script on a cadence (daily, hourly, etc.).
 
 ### Suggested Configuration
+
 ### Trigger
+
 - Daily, or every X minutes
 
 ### Action
@@ -202,6 +205,68 @@ python Zebra_Scan_Tool.py
 - **Start in:** directory containing the script
 
 No scheduling logic is embedded in the script.
+
 It is intentionally designed to be scheduled externally.
 
 ---
+
+## Duplicate Handling
+
+Duplicates are prevented at the **Excel level.**
+- Before appending, the script loafs all existing serals from **column 3.**
+- Any serial already present is skipped
+- serial accepted during the current run are added immediately, preventing duplicates within the same run.
+
+This makes the append script **safe to run repeatedly** without re-adding serial numbers.
+
+---
+
+## Troubleshooting
+
+### Receiver Window is not Capturing Scans
+
+- Click inside the receiver window at least once before docking the scanner upload
+- Some environments require initial focus action
+- The UI enforces focus, but Windows policies may still allow other applications to steal focus
+
+---
+
+### No Data to Append to Excel
+
+- Confirm psion.txt exists and is being written to
+- confirm checkpint file is not pointing past the end of the txt file
+- If the txt file was truncated or rewritten, the script automatically resets the checkpoint
+
+---
+
+### Duplcates Are Still Showing in Excel
+
+This should not happen unless:
+- serials are not stored consistently as 18-digit strings
+- serials were manually edited or entered with spaces, formatting changes, or leading zeros removed
+
+---
+
+### Design Notes
+
+- The chekpoint is updated **only after a successful Excel save.**
+- Excel headers are written once, and the sheet is created if it does not exist
+- Invalid lines are ignored instead of crashing the job
+- Files are handled using **UTF-8 encoding**
+
+---
+
+### Author
+
+**Matthew Minton**
+
+Controls Engineer, Manufacturing Engineering
+
+March 2, 2026
+
+---
+
+### License
+
+Internal use, customize as needed for your environment.
+
