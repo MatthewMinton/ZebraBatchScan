@@ -200,6 +200,7 @@ python Zebra_Scan_Tool.py
 - **Program/script:** python.exe
 - **Add arguments:** Zebra_To_Excel.py
 - **Start in:** directory containing the script
+
 No scheduling logic is embedded in the script.
 It is intentionally designed to be scheduled externally.
 
